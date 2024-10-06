@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style>
+        .custom-heading {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700; /* Опціонально: робить шрифт товстішим */
+        }
+    </style>
+    <h1 class="text-center my-5 custom-heading">Choose your coffee</h1>
+
+    <div class="row">
+        {% for coffee in coffees %}
+            <div class="col-md-4 my-3">
+                <div class="card" style="width: 18rem; display: flex; flex-direction: column; height: 100%;">
+                    <img src="{{ coffee.image }}" class="card-img-top" alt="{{ coffee.name }}" style="height: 460px; object-fit: cover;">
+                    <div class="card-body" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                        <h5 class="card-title">{{ coffee.name }}</h5>
+                        <p class="card-text">€{{ coffee.price }}</p>
+                        <a href="#" class="btn btn-primary">Order this Coffee</a>
+                    </div>
+                </div>  
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
